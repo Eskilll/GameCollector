@@ -34,10 +34,10 @@ namespace GameCollector
                 inpt = System.Console.ReadLine();
                 if(inpt == "C"){
                     //kör en metod för att skapa ett pc spel
-                    Cadd(i1);
+                    Cadd(i1, lista);
                 }
                 else if(inpt == "B"){
-                    Badd(result);
+                    Badd(result,lista);
                     //kör metod för att skapa bräd spel
 
 
@@ -52,7 +52,7 @@ namespace GameCollector
                 
                 
                 
-                static void Badd(int i1){
+                static void Badd(int i1, List<string> lista){
                     for(int ii = 0; ii > i1; ii++){
                         //frågar användaren efter namn description och antal spelare
                         System.Console.WriteLine("name of game?");
@@ -65,13 +65,15 @@ namespace GameCollector
                         int result;
                         bool tryparse = int.TryParse(number, out result);
                         bgame.players = result;
+                        string temp = bgame.name + " : " + bgame.desc + " : " + bgame.players;
+                        lista.Add(temp);
                         
 
 
                     }
 
                 }
-                static void Cadd(int i1){
+                static void Cadd(int i1, List<string> lista){
                     //frågar användaren nam description och platform
                     for(int ii = 0; ii > i1; ii++){
                         System.Console.WriteLine("name of game?");
@@ -81,7 +83,8 @@ namespace GameCollector
                         pcgame.desc = System.Console.ReadLine();
                         System.Console.WriteLine("what platform is used?");
                         pcgame.platform = System.Console.ReadLine();
-                        
+                        string temp = pcgame.name + " : " + pcgame.desc + " : " + pcgame.platform;
+                        lista.Add(temp);
 
 
                     }
